@@ -1,0 +1,30 @@
+#!/usr/bin/env python
+
+import sys
+
+class bcolors:
+  PINK = '\033[95m'
+  OKBLUE = '\033[94m'
+  OKGREEN = '\033[92m'
+  WARNING = '\033[93m'
+  ERROR = '\033[91m'
+  ENDC = '\033[0m'
+  BOLD = '\033[1m'
+  UNDERLINE = '\033[4m'
+
+try:
+  for line in sys.stdin:
+    if line.find("*ERROR*") > 0:
+      color = bcolors.ERROR
+    elif line.find("*WARN*") > 0:
+      color = bcolors.WARNING
+    elif line.find("*INFO*") > 0:
+      color = bcolors.OKBLUE
+    else:
+      color = bcolors.PINK
+
+    sys.stdout.write(color + line + bcolors.ENDC)
+
+except KeyboardInterrupt:
+   sys.stdout.flush()
+   pass
