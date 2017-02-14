@@ -10,11 +10,11 @@ BOLD='\033[1m'
 UNDERLINE='\033[4m'
 
 while read line ; do
-  if [[ $line == *"*ERROR*"* ]]; then
+  if [[ $line == *"[ERROR]"* ]]; then
     color=$ERROR
-  elif [[ $line == *"*WARN*"* ]]; then
+  elif [[ $line == *"[WARNING]"* ]]; then
     color=$WARNING
-  elif [[ $line == *"*INFO*"* ]]; then
+  elif [[ $line == *"[INFO]"* ]]; then
     color=$OKBLUE
   else
     color=$PINK
